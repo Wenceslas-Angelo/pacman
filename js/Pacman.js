@@ -12,7 +12,7 @@ class Pacman {
     this.direction = null;
     this.timer = 0;
     this.powerPill = false;
-    this.ritation = true;
+    this.rotation = true;
   }
 
   shouldMove() {
@@ -22,7 +22,6 @@ class Pacman {
       return true;
     }
     this.timer += 1;
-    return null;
   }
 
   getNextMove(objectExist) {
@@ -35,11 +34,11 @@ class Pacman {
     return { nextMovePos, direction: this.direction };
   }
 
-  // makeMove() {
-  //   const classesToRemove = [OBJECT_TYPE.PACMAN];
-  //   const classesToAdd = [OBJECT_TYPE.PACMAN];
-  //   return { classesToRemove, classesToAdd };
-  // }
+  makeMove() {
+    const classesToRemove = [OBJECT_TYPE.PACMAN];
+    const classesToAdd = [OBJECT_TYPE.PACMAN];
+    return { classesToRemove, classesToAdd };
+  }
 
   setNewPos(nextMovePos) {
     this.pos = nextMovePos;
@@ -47,13 +46,15 @@ class Pacman {
 
   handleKeyInput(e, objectExist) {
     let dir;
-    if (e.key >= 37 && e.key <= 40) {
+    if (e.keyCode >= 37 && e.keyCode <= 40) {
       dir = DIRECTIONS[e.key];
     } else {
       return;
     }
     const nextMovePos = this.pos + dir.movement;
-    if (objectExist(nextMovePos, OBJECT_TYPE.WALL)) return;
+    const wallIsExist = objectExist(nextMovePos, OBJECT_TYPE.WALL);
+    const ghostLairIsExist = objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR);
+    if (wallIsExist || ghostLairIsExist) return;
     this.direction = dir;
   }
 }

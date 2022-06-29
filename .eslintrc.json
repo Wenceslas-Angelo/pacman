@@ -9,6 +9,9 @@
     "sourceType": "module"
   },
   "rules": {
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "comma-dangle": "off",
+    "consistent-return": "off",
+    "class-methods-use-this": "off"
   }
 }
