@@ -12,6 +12,7 @@
     "object-curly-newline": "off",
     "comma-dangle": "off",
     "consistent-return": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off"
   }
 }
