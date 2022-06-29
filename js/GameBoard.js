@@ -69,9 +69,7 @@ class GameBoard {
    * @param {number} pos
    * @param {*} object
    */
-  objectExist(pos, object) {
-    return this.grid[pos].classList.contains(object);
-  }
+  objectExist = (pos, object) => this.grid[pos].classList.contains(object);
 
   /**
    *
